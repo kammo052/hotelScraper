@@ -68,7 +68,7 @@ async function scrapeBooking(city, checkin, checkout, isHeadless) {
 
     try {
         await driver.get(url);
-         await delay(1000); // Wait for dynamic content
+        await delay(1000); // Wait for dynamic content
         await driver.wait(until.elementLocated(By.xpath("(//div[@aria-label='Property'])[1]")), 10000);
 
         // Extract the hotel name
@@ -118,11 +118,13 @@ async function scrapeAgoda(city, checkin, checkout, isHeadless) {
 
         const hotelName = await hotelCard.findElement(By.css('[data-selenium ="hotel-name"]')).getText();
 
-        const price = await hotelCard.findElement(By.css('[data-selenium="display-price"]')).getText();
+        // const price = await driver.wait(until.elementLocated(By.css('[data-selenium="display-price"]')), 10000).getText();
+
+        const price = await hotelCard.findElement(By.css('.PropertyCardPrice__Value')).getText();
 
         const linkElem = await hotelCard.findElement(By.css("a.PropertyCard__Link"));
         const link = await linkElem.getAttribute("href");
-        
+
         return {
             site: "Agoda",
             hotelName: hotelName.trim(),
