@@ -1,0 +1,17 @@
+{
+  "name": "sdet-test",
+  "version": "1.0.0",
+  "description": "This is for assignment.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+  "start": "node index.js",
+  "test": "npm start",
+  "test:headless": "node index.js --headless"
+},
+  "author": "Kamlesh",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.32.0"
+  }
+}
