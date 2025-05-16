@@ -1,5 +1,3 @@
-Here’s a simple README.md for your Selenium scraper project, including instructions to run with or without headless mode:
-
 ````markdown
 # Booking.com Selenium Scraper
 
@@ -46,7 +44,7 @@ npm run test:headless
 
 ## How it works
 
-* Builds a Booking.com search URL with specified city and dates.
+* Builds a example.com search URL with specified city and dates.
 * Launches a Chrome browser via Selenium WebDriver.
 * Waits for hotel results to load.
 * Extracts and prints the top-rated 5-star hotel name, price, and link.
