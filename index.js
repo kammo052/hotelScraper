@@ -8,7 +8,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-process.env.PATH += `:${path.join(__dirname, 'drivers')}`;
+const chromeDriverPath = path.join(__dirname, 'drivers', 'chromedriver.exe');
+const serviceBuilder = new chrome.ServiceBuilder(chromeDriverPath);
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -62,6 +63,7 @@ async function scrapeBooking(city, checkin, checkout, isHeadless) {
     const driver = await new Builder()
         .forBrowser("chrome")
         .setChromeOptions(options)
+        .setChromeService(serviceBuilder)
         .build();
 
     try {
@@ -102,6 +104,7 @@ async function scrapeAgoda(city, checkin, checkout, isHeadless) {
     const driver = await new Builder()
         .forBrowser("chrome")
         .setChromeOptions(options)
+        .setChromeService(serviceBuilder)
         .build();
 
     try {
